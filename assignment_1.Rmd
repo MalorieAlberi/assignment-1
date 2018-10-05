@@ -1,0 +1,60 @@
+---
+title: "Assignment 1"
+author: "Malorie Alberi"
+date: "03/10/2018"
+output: html_document
+---
+
+```{r}
+source("functions.R")
+```
+
+
+## Exercice 1
+
+Statistics is a branch of mathematics dealing with the collection, organization and analysis of data.
+
+## Exercice 2
+
+```{r}
+possible_outcomes <- c(0, 1, 2, 3, 4, 5)
+outcome_probabilities <- c(0.1, 0.5, 0.2, 0.1, 0.05, 0.05)
+n_data_points <- 400
+
+set.seed(1)
+fake_data_points <- sample(possible_outcomes,
+                           n_data_points,
+                           replace=T,
+                           prob=outcome_probabilities)
+set.seed(NULL)
+
+fake_data_set <- tibble::data_frame('Fake measurement'=fake_data_points)
+```
+
+```{r}
+ggplot2::ggplot(fake_data_set, ggplot2::aes(x=`Fake measurement`)) +
+  ggplot2::geom_histogram(bins=5, colour="black", fill="lightgrey")
+```
+
+Statement 2: 
+'outcome_probabilities' is a variable that states the probabilities we expect of the possible outcomes numbers respectively, like a percentage. 
+If we add the numbers all together, we get 1. 
+In this case, for example, the possible outcome to be 2 is about 0.5 so there is about 50% chances that the outcome will be 2. And so on in the order stated. 
+
+Statement 3:
+This is a variable assignment, that in the graph, the number of data points will be 400. 
+
+Statement 4:
+I had to search on the internet, I think 'set.seed' is about geting the results in the same order every time we run the chunk. If this is right, this means 'set.seed(NULL)' is canceling the first 'set.seed' command by telling the computer not to organize in a specific order the results. (?)
+
+Statement 5:
+
+
+
+Statement 6:
+We use 'data.frames' to create a structure for the data (columns, rows etc...). I think 'data_frames' does about the same things, but less precisely. I you wanted to be explicit and give more information on the frame you would like, you'd have to use 'data.frame'.
+
+## Exercice 3
+
+# 3a 
+
